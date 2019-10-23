@@ -1,0 +1,62 @@
+<Films>
+    <film>
+        <title>The Shawshank Redemption</title>
+        <genre>Drama</genre>
+        <year>1994</year>
+        <personal_rating>9</personal_rating>
+        <director>Frank Darabont</director>
+        <actors>
+            <name>Tim Robbins</name>
+            <name>Morgan Freeman</name>
+            <name>Bob Gunton</name>
+        </actors>
+    </film>
+    <film>
+        <title>The Godfather</title>
+        <genre>Drama</genre>
+        <year>1972</year>
+        <personal_rating>9</personal_rating>
+        <director>Francis Ford Coppola</director>
+        <actors>
+            <name>Marlon Brando</name>
+            <name>Al Pacino</name>
+            <name>James Caan</name>
+        </actors>
+    </film>
+    <film>
+        <title>The Dark Knight</title>
+        <genre>Action</genre>
+        <year>2008</year>
+        <personal_rating>9</personal_rating>
+        <director>Christopher Nolan</director>
+        <actors>
+            <name>Christian Bale</name>
+            <name>Heath Ledger</name>
+            <name>Aaron Eckhart</name>
+        </actors>
+    </film>
+    <film>
+        <title>Pulp Fiction</title>
+        <genre>Crime</genre>
+        <year>1994</year>
+        <personal_rating>9</personal_rating>
+        <director>Quentin Tarantino</director>
+        <actors>
+            <name>John Travolta</name>
+            <name>Uma Thurman</name>
+            <name>Samuel L. Jackson</name>
+        </actors>
+    </film>
+    <film>
+        <title>Goodfellas</title>
+        <genre>Crime</genre>
+        <year>1990</year>
+        <personal_rating>9</personal_rating>
+        <director>Martin Scorsese</director>
+        <actors>
+            <name>Robert De Niro</name>
+            <name>Ray Liotta</name>
+            <name>Joe Pesci</name>
+        </actors>
+    </film> 
+</Films>

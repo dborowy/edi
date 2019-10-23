@@ -22,4 +22,13 @@
 		<phone type="work">6660611</phone>
 		<notes>my best friend</notes>
 	</contact>
+	<contact>
+		<name>Dominik</name>
+		<name>Kamil</name>
+		<surname>Borowy</surname>
+		<email type="personal">dominikborowy@gmail.com</email>
+		<email type="business">dominikborowy@CompLand.pl</email>
+		<phone type="home">38192739</phone>
+		<phone type="work">40932492</phone>
+	</contact>
 </contacts>
