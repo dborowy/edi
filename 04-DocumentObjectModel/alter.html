@@ -20,6 +20,19 @@
 		and psychedelic music.</p>
 		
 		<script>
+		document.getElementsByTagName('h1')[0].onclick = function() {onTitleClick()}
+		document.getElementsByTagName('h3')[0].onclick = function() {onBandClick()}	
+
+		function onTitleClick()
+		{
+			document.getElementsByTagName('h1')[0].innerHTML += ' Part2'	
+		}
+			
+		function onBandClick()
+		{
+			document.getElementsByTagName('p')[1].style = 'visibility: visible'
+		}	
+			
 			// a JavaScript code here ...
 			
 		</script>
