@@ -8,7 +8,23 @@
 		<h1>An array</h1>
 		<script>
 			var myArray = []
-
+			function Random() {
+				return Math.floor(Math.random() * 5) + 1
+			}
+			for (i=1; i<6; i++) {
+				myArray.push(Random())
+			}
+			
+			for (i=1; i<myArray.length; i++) {
+				if (myArray[i]<myArray[i-1]) {
+					console.log('The array is not sorted')
+					break;
+				}
+				if (i==4 && myArray[i]>=myArray[i-1]){
+					console.log('The array is sorted');
+				}
+			}
+			console.log(myArray)
 			// fill in the array with random values
 			// ...
 

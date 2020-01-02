@@ -6,7 +6,19 @@
 	</head>
 	<body>
 		<h1>Create mobile phone</h1>
+		<button type="button" onclick="displayDescription();">Display phones description</button>
 		<script>
+			var myMobilePhone = {
+					brand:		'OnePlus',
+					modelNo:		6,
+					n5G:		false,
+					specs:		{ram: '8 GB',memory: '128 GB', system: 'Android 10'},
+					includedEq: ['case','screen protector','charger']
+			}
+			function displayDescription() {
+				alert('Brand: '+myMobilePhone.brand+'\n'+'Model: '+myMobilePhone.modelNo+'\n'+'5G ready: '+myMobilePhone.n5G+'\n'+
+				'Specification: '+myMobilePhone.specs.ram+', '+myMobilePhone.specs.memory+', '+myMobilePhone.specs.system+'\n'+'Included Equipment: '+myMobilePhone.includedEq)
+			}
 		</script>
 	</body>
 </html>

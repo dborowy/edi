@@ -7,22 +7,47 @@
 	<body>
 		<h1>Create methods</h1>
 		<script>
-			var array = []
-			for(i=0;i<5;i++) {
-				array.push(Math.floor(Math.random() * 5) + 1);
-			}
-			for()
-			console.log(array)
-			//var myArray = {
-			//		arr: [3,4,76,1,5,787,33,76,1,99,45,235,53,23],
-			//		min: function(){
-			//			// maximum value (sort the arr and take the last value, use a built-in function)
-			//		},		
-			//		max: function(){},		// look at the min method comment
-			//		avg: function(){},		// avarage value
-			//		lth: function(val){}	// the number of arr values less than 'val'
-			//};
-			
+		
+			var myArray = {
+					arr: [3,4,76,1,5,787,33,76,1,99,45,235,53,23],
+					compareNumbers: function(a,b) {
+						return a - b
+					},
+					max: function(){
+						var arrLg = myArray.arr.length
+						var max = myArray.arr.sort(myArray.compareNumbers)[arrLg-1]
+						return max
+						// maximum value (sort the arr and take the last value, use a built-in function)
+					},		
+					min: function(){
+						var min = myArray.arr.sort(myArray.compareNumbers)[0]
+						return min
+					},		// look at the max method comment
+					avg: function(){
+						var sum = myArray.arr.reduce(function(a,b) {return a+b}, 0)
+						var arrLg = myArray.arr.length
+						var average = sum/arrLg
+						return average
+					},		// avarage value
+					lth: function(val){
+						var counter = 0;
+						var arrLg = myArray.arr.length
+						for (i=0;i<arrLg;i++) {
+							if (myArray.arr[i]<val) {
+								counter++
+							}
+						}
+						return counter
+					},	// the number of arr values less than 'val'
+					display: function() {
+						var vmin = myArray.min()
+						var vmax = myArray.max()
+						var vavg = myArray.avg()
+						var vlth = myArray.lth(200)
+						console.log(vmin,vmax,vavg,vlth)
+					}
+			};
+			myArray.display()
 			// display results (min,max,avg,lth) in the console
 			// ...
 		</script>

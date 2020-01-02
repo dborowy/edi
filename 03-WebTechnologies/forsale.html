@@ -7,6 +7,37 @@
 	<body>
 		<h1>Houses for sale</h1>
 		<script>
+			function House(bedrooms,facilities,price,address,phone) {
+			this.bedrooms = bedrooms;
+			this.facilities = facilities;
+			this.price = price;
+			this.address = address;
+			this.phone = phone;
+			this.changePrice = function(newPrice) {
+				this.price = newPrice
+			}
+			this.addFacility = function(newFacility) {
+				this.facilities.push(newFacility)
+			}
+			this.description = function() {
+				console.log('Number of bedrooms:',this.bedrooms,'\nFacilities:',this.facilities,'\nPrice:',
+				this.price,'\nAddress:',this.address,'\nPhone Number:',this.phone)
+			}
+			}
+			var house_1 = new House(3,['garden','BBQ'],350000,{street: 'Dluga 20',city: 'Krakow'},500300200)
+			var house_2 = new House(4,['swimming pool','BBQ'],450000,{street: 'Krotka 10',city: 'Warszawa'},200100300)
+			var house_3 = new House(5,['garden','BBQ','swimming pool'],650000,{street: 'Szorstka 15',city: 'Wroclaw'},700200200)
+			
+			var houses = [house_1,house_2,house_3]
+			function listDescriptions() {
+					for (i=0;i<houses.length;i++) {
+						houses[i].description()
+			}
+			}
+			listDescriptions()
+			house_2.changePrice(700000)
+			house_1.addFacility('Jacuzzi')
+			listDescriptions()
 		</script>
 	</body>
 </html>
