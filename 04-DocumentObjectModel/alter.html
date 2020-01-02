@@ -21,18 +21,41 @@
 		
 		<script>
 		document.getElementsByTagName('h1')[0].onclick = function() {onTitleClick()}
-		document.getElementsByTagName('h3')[0].onclick = function() {onBandClick()}	
+		document.getElementsByTagName('h3')[0].onclick = function() {onBandClick()}
+		document.getElementsByTagName('p')[0].onclick = function() {onLyricsClick()}
+		document.ondblclick = function() {onBckgDblClick()}
+		document.getElementsByTagName('p')[0].oncopy = function() {onLyricsCopy()}
+		document.getElementsByTagName('p')[1].onclick = function() {onDescClick()}
 
 		function onTitleClick()
 		{
-			document.getElementsByTagName('h1')[0].innerHTML += ' Part2'	
+			document.getElementsByTagName('h1')[0].innerHTML += ' Part 2'	
 		}
 			
 		function onBandClick()
 		{
 			document.getElementsByTagName('p')[1].style = 'visibility: visible'
 		}	
+		
+		function onLyricsClick() {
+			document.getElementsByTagName('p')[0].style.fontStyle = 'italic'
 			
+		}
+
+		function onBckgDblClick() {
+			document.body.style.backgroundColor = 'yellow'
+		}
+
+		function onLyricsCopy() {
+			alert('This text is copyrighted')
+		}
+
+		function onDescClick() {
+			
+			document.getElementsByTagName('p')[1].innerHTML += "\n<img src='https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg' />";
+			
+		}
+
 			// a JavaScript code here ...
 			
 		</script>
