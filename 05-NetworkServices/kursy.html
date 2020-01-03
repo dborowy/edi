@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KURSY</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>KURSY WALUT</h1>
+        <p>EUR</p>
+        <p id="eur">Kupno/Sprzedaż: </p>
+        <br>
+        <p>USD</p>
+        <p id="usd">Kupno/Sprzedaż: </p>
+        <br>
+        <p>GBP</p>
+        <p id="gbp">Kupno/Sprzedaż: </p>
+        <script>
+            function displayName(currency) {
+                    var xhttp = new XMLHttpRequest();
+                    var curr = currency
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var myJSON = JSON.parse(this.responseText);
+                            document.getElementById(curr).innerHTML += myJSON.rates[0].ask+' / '+myJSON.rates[0].bid;
+                        }
+                    };
+                    var link = 'http://api.nbp.pl/api/exchangerates/rates/c/'+curr+'/today/?format=json'
+                    xhttp.open('GET',link,true);
+                    xhttp.send();
+                    console.log(link)
+            }
+            displayName('eur')
+            displayName('usd')
+            displayName('gbp')
+        </script>
+    
+    </body>
+</html>

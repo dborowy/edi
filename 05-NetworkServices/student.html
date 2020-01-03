@@ -7,15 +7,21 @@
 	<body>
 		<h1>Student</h1>
 		<p>Open a console and then click the button</p>
-		<input type="button" value="Display student's data">
+		<input type="button" value="Display student's data" onclick="displayName()">
 		<p id="personalData"></p>
 
-		<script type="text/javscript" src="NS.json"></script>
 		<script>
-			var userdata = JSON.parse(NS);
-			var name = userdata[0].name;
-			var surname = userdata[0].surname;
-			console.log(name)
+			function displayName() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var myJSON = JSON.parse(this.responseText);
+						document.getElementById("personalData").innerHTML = myJSON.name+' '+myJSON.surname;
+					}
+				};
+				xhttp.open('GET','NS.json',true);
+				xhttp.send();
+			}
 		</script>
 
 	</body>
