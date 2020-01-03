@@ -3,10 +3,34 @@
 	<head>
 		<title>Create DOM elements</title>
 		<meta charset="UTF-8">
+		<style>
+		table {
+			border-collapse: collapse;
+			width: 200px;
+			height: 50px;
+		}
+		table, td {
+			border: 1px solid black;
+			text-align: center;
+		}
+		</style>
 	</head>
 	<body>
+		<table id="myTable"></table>
+		
 		<script>
 			// a JavaScript code here ...
+			var table = document.getElementById("myTable");
+			var row = table.insertRow(0);
+			var row2 = table.insertRow(1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row2.insertCell(0);
+			var cell4 = row2.insertCell(1);
+			cell1.innerHTML = "1"
+			cell2.innerHTML = "2"
+			cell3.innerHTML = "3"
+			cell4.innerHTML = "4"
 			
 		</script>
 	</body>

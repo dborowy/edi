@@ -9,13 +9,17 @@
 <body>
 	<h1>Filling in a form</h1>
 	<form>
-		<p>University:<br><input type="text"></p>
-		<p>Address:<br><input type="text"></p>
-		<button type="button">Hint</button>
+		<p>University:<br><input type="text" id="uni"></p>
+		<p>Address:<br><input type="text" id="add"></p>
+		<button type="button" onclick="fillClue()">Hint</button>
 	</form>
 
 	<script>
 		// a JavaScript code here ...
+		function fillClue() {
+			document.getElementById('uni').value = university
+			document.getElementById('add').value = address
+		}
 		var university = "Cracow University of Economics";
 		var address = "Rakowicka 27, Krakow, POLAND";
 
