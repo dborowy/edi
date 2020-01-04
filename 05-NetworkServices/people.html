@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PEOPLE</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <p>
+            <button type="button" onclick="Click()">List out people</button>
+
+        </p>
+
+        <script>
+            function displayName(x) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myJSON = JSON.parse(this.responseText);
+                        document.getElementsByTagName('p')[0].innerHTML += 
+                        '<li>'+myJSON[x].name+' '+myJSON[x].surname+' '+myJSON[x].age+' '+myJSON[x].country
+                        +' '+myJSON[x].email+'</li>';
+                    }
+                };
+                
+                xhttp.open('GET','people.json',true);
+                xhttp.send();
+            }
+            function Click() {
+                for(i=1;i<120;i++) {
+                    displayName(i)
+                }
+            }
+        </script>
+    </body>
