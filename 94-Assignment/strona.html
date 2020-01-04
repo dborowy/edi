@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 1000px;
+                height: 25px;
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+            table, td {
+                border: 1px solid black;
+                text-align: center;
+            }
+            </style>        
+    </head>
+    <body>
+        <p  style="text-align: center;font-size: x-large;">
+            Plan Zajęć:
+        </p>
+        <table id="myTable"></table>
+    </body>
+    <script>
+        function displayName() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myJSON = JSON.parse(this.responseText);
+                    }
+                    
+                    var plan = myJSON.zajecia;
+                    var len = plan.length;
+                    var table = document.getElementById('myTable');
+                    for(i=0;i<len;i++) {
+                        let row = table.insertRow(i);
+                        let date = row.insertCell(0);
+                        let pl = plan[i]
+                        date.innerHTML = pl.termin
+                        let time = row.insertCell(1)
+                        time.innerHTML = pl.dzien + ' ' + pl['od-godz'] +' - ' + pl['do-godz']
+                        let subject = row.insertCell(2)
+                        subject.innerHTML = pl.przedmiot
+                        let type = row.insertCell(3)
+                        type.innerHTML = pl.typ
+                        let teacher = row.insertCell(4)
+                        if(pl.nauczyciel == '') {
+                            teacher.innerHTML = ''
+                        } else {
+                            if(typeof pl.nauczyciel[0]['_']!= "undefined"){
+                                teacher.innerHTML = pl.nauczyciel[0]['_']
+                            } else {
+                                teacher.innerHTML = pl.nauczyciel
+                            }
+                        }
+                        let sala = row.insertCell(5)
+                        sala.innerHTML = pl.sala
+                        
+
+
+                    }
+                };
+            xhttp.open('GET','data_clean.json',true);
+            xhttp.send();
+        }
+        displayName()
+    </script>
+</html>
