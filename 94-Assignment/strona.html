@@ -3,68 +3,162 @@
     <head>
         <meta charset="utf-8">
         <style>
+            * {
+                font-family: Arial, Helvetica
+            }
             table {
                 border-collapse: collapse;
-                width: 1000px;
+                width: 80%;
                 height: 25px;
                 margin-left: auto;
                 margin-right: auto;
                 
             }
             table, td {
-                border: 1px solid black;
+                border: 1px solid #86B445;
                 text-align: center;
+                padding: 5px;
+                
             }
-            </style>        
+            #title {
+                color: #475237;
+                text-align: center;
+                font-size: xx-large;
+                font-weight: bold;
+            }
+            #name {
+                color: black;
+                font-weight: bold;
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;          
+            }
+            #group {
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
+                font-size: 15px;
+            }
+            #subject {
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
+                font-size: 15px;
+            }
+            div, th {
+                color: black;
+                background: #86B445;
+            }
+            #kolos {
+                color: red;
+                font-weight: bold;
+            }
+            </style>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
     </head>
     <body>
-        <p  style="text-align: center;font-size: x-large;">
-            Plan Zajęć:
-        </p>
-        <table id="myTable"></table>
-    </body>
-    <script>
-        function displayName() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var myJSON = JSON.parse(this.responseText);
-                    }
-                    
-                    var plan = myJSON.zajecia;
-                    var len = plan.length;
-                    var table = document.getElementById('myTable');
-                    for(i=0;i<len;i++) {
-                        let row = table.insertRow(i);
-                        let date = row.insertCell(0);
-                        let pl = plan[i]
-                        date.innerHTML = pl.termin
-                        let time = row.insertCell(1)
-                        time.innerHTML = pl.dzien + ' ' + pl['od-godz'] +' - ' + pl['do-godz']
-                        let subject = row.insertCell(2)
-                        subject.innerHTML = pl.przedmiot
-                        let type = row.insertCell(3)
-                        type.innerHTML = pl.typ
-                        let teacher = row.insertCell(4)
-                        if(pl.nauczyciel == '') {
-                            teacher.innerHTML = ''
-                        } else {
-                            if(typeof pl.nauczyciel[0]['_']!= "undefined"){
-                                teacher.innerHTML = pl.nauczyciel[0]['_']
-                            } else {
-                                teacher.innerHTML = pl.nauczyciel
-                            }
+        <p id="title">Plan Zajęć</p>
+        <p id="name">Dominik Borowy</p>
+        <p id="group">WZISS1-1111</p>
+        <p id="subject">Informatyka Stosowana</p>
+
+        <table id="myTable">
+            <div>
+                <th>Termin</th>
+                <th>Dzień,godzina</th>
+                <th>Przedmiot</th>
+                <th>Typ</th>
+                <th>Nauczyciel</th>
+                <th>Sala</th>
+            </div>
+        </table>
+    
+    
+        <script>
+            function fillTable() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var myJSON = JSON.parse(this.responseText);
                         }
-                        let sala = row.insertCell(5)
-                        sala.innerHTML = pl.sala
                         
+                        var plan = myJSON.zajecia;
+                        var len = plan.length;
+                        var table = document.getElementById('myTable');
+                        
+                        for(i=0;i<len;i++) {
+                            let row = table.insertRow(i+1);
+                            let pl = plan[i]
+                            let date = row.insertCell(0);
+                            date.innerHTML = pl.termin
+                            let time = row.insertCell(1)
+                            time.innerHTML = pl.dzien + ' ' + pl['od-godz'] +' - ' + pl['do-godz']
+                            let subject = row.insertCell(2)
+                            subject.innerHTML = pl.przedmiot
+                            let type = row.insertCell(3)
+                            type.innerHTML = pl.typ
+                            let teacher = row.insertCell(4)
+                            if(pl.nauczyciel == '') {
+                                teacher.innerHTML = ''
+                            } else {
+                                if(typeof pl.nauczyciel[0]['_']!= "undefined"){
+                                    teacher.innerHTML = pl.nauczyciel[0]['_']
+                                } else {
+                                    teacher.innerHTML = pl.nauczyciel
+                                }
+                            }
+                            let sala = row.insertCell(5)
+                            sala.innerHTML = pl.sala
+                            if (pl.kolos=="true") {
+                                row.setAttribute("id","kolos")
+                                let zakres = row.insertCell(6)
+                                zakres.setAttribute("style","visibility: hidden;")
+                                zakres.innerHTML = pl.zakres
+                                
+                            }
+                            
+                            
+                            
 
 
+                        }
+                    };
+                xhttp.open('GET','data_clean_kolos.json',true);
+                xhttp.send();
+            }
+            fillTable()
+            
+            var plSubj = ['Organizacja i zarządzanie', 'Język obcy 2.1 (studia stacjonarne) - grupa przedmiotów',
+                'Wprowadzenie do matematyki','Prawa i obowiązki studenta','Architektura systemów komputerowych',
+                'Teoretyczne podstawy informatyki','Pracownia programowania I','Elektroniczna wymiana danych']
+            var engSubj = ['Organization and management','Foreign Language 2.1 (stationary studies) - subject group',
+                'Introduction to Mathematics','Students rights and duties','Architecture of computer systems',
+                'Theoretical basics of informatics','Programming lab I','Electronic Data Interchange']
+            $(document).ready(function(){
+                $(document).on("click",'td', function(){
+                    //console.log('works')
+                    var elem = $(this)
+                    var word = $(this).html()
+                    //console.log(elem)
+                    if($.inArray(word,plSubj)>=0) {
+                        var x = $.inArray(word,plSubj);
+                        var y = engSubj[x];
+                        $(this).replaceWith('<td>'+y+'</td>');
+                        
+                        
                     }
-                };
-            xhttp.open('GET','data_clean.json',true);
-            xhttp.send();
-        }
-        displayName()
-    </script>
+
+                })
+                $(document).on('mouseover','#kolos', function () {
+                    alert($(this).find("td").eq(6).html())
+                    
+                    
+                }
+                )
+            });
+            
+        </script>
+        
+    </body>
 </html>
