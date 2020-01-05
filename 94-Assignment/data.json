@@ -1,43 +1,4 @@
 {
-  "plan-zajec": {
-    "$": {
-      "typ": "G",
-      "id": "140311",
-      "nazwa": "WZISS1-1111",
-      "od": "2019-09-18",
-      "do": "2020-02-20"
-    },
-    "okres": [
-      {
-        "$": {
-          "od": "2020-01-02",
-          "do": "2020-01-16",
-          "nazwa": "2020-01-02 do 2020-01-16"
-        }
-      },
-      {
-        "$": {
-          "od": "2019-09-18",
-          "do": "2020-02-20",
-          "nazwa": "2019-09-18 do 2020-02-20",
-          "wybrany": "tak"
-        }
-      },
-      {
-        "$": {
-          "od": "2019-09-17",
-          "do": "2020-09-30",
-          "nazwa": "2019-09-17 do 2020-09-30"
-        }
-      },
-      {
-        "$": {
-          "od": "2018-09-29",
-          "do": "2019-09-30",
-          "nazwa": "2018-09-29 do 2019-09-30"
-        }
-      }
-    ],
     "zajecia": [
       {
         "termin": [
@@ -2039,6 +2000,12 @@
         ],
         "sala": [
           "Paw.A 301a lab.Win10, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Kodowanie"
         ]
       },
       {
@@ -2153,6 +2120,12 @@
         ],
         "sala": [
           ""
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Present Simple"
         ]
       },
       {
@@ -2241,6 +2214,12 @@
         ],
         "sala": [
           "Paw.A 115 lab.Win8.1, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Podstawy EWD"
         ]
       },
       {
@@ -2334,6 +2313,12 @@
         ],
         "sala": [
           "Paw.F 516"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Własności funkcji"
         ]
       },
       {
@@ -2969,6 +2954,12 @@
         ],
         "sala": [
           "Paw.A 013 lab. Win10, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Systemy liczbowe"
         ]
       },
       {
@@ -3264,6 +3255,12 @@
         ],
         "sala": [
           "Paw.A 115 lab.Win8.1, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Działy 1-5"
         ]
       },
       {
@@ -3930,6 +3927,12 @@
         ],
         "sala": [
           "Bibl. 442"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Ekonomia"
         ]
       },
       {
@@ -4427,6 +4430,12 @@
         ],
         "sala": [
           "Paw.F 516"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Granica funkcji"
         ]
       },
       {
@@ -5062,6 +5071,12 @@
         ],
         "sala": [
           "Bibl. 442"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Ergonomia"
         ]
       },
       {
@@ -5435,6 +5450,12 @@
         ],
         "sala": [
           ""
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Past Simple"
         ]
       },
       {
@@ -5528,6 +5549,12 @@
         ],
         "sala": [
           "Paw.A 013 lab. Win10, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Assembler"
         ]
       },
       {
@@ -5761,6 +5788,12 @@
         ],
         "sala": [
           "Paw.A 301a lab.Win10, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Algorytmy"
         ]
       },
       {
@@ -6196,6 +6229,12 @@
         ],
         "sala": [
           "Paw.A 115 lab.Win8.1, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Działy 1-10"
         ]
       },
       {
@@ -6429,6 +6468,12 @@
         ],
         "sala": [
           "Paw.A 115 lab.Win8.1, Office16"
+        ],
+        "kolos": [
+          "true"
+        ],
+        "zakres": [
+          "Javascript"
         ]
       },
       {
@@ -6643,4 +6688,3 @@
       }
     ]
   }
-}
